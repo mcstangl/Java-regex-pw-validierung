@@ -57,4 +57,32 @@ class passwordTest {
         assertFalse(actual);
     }
 
+    @Test
+    @DisplayName("should return false when given password without numbers")
+    public void checkWithoutNumbers() {
+        // Given
+        String testPassword = "werdcQWEVadf&%$";
+
+        // When
+        boolean actual = Password.validate(testPassword);
+
+        // Then
+        assertFalse(actual);
+    }
+
+    @Test
+    @DisplayName("should return false when given password without special characters")
+    public void checkWithoutSpecialCharacters() {
+        // Given
+        String testPassword = "werdcQWEVadf3242";
+
+        // When
+        boolean actual = Password.validate(testPassword);
+
+        // Then
+        assertFalse(actual);
+    }
+
+
+
 }

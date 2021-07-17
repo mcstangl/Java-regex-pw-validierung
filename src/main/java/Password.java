@@ -6,7 +6,9 @@ public class Password {
         return hasMinimumLength(password) &&
                 isNotTooLong(password) &&
                 hasCapitalLetters(password) &&
-                hasLowerCaseLetters(password);
+                hasLowerCaseLetters(password) &&
+                hasNumber(password) &&
+                hasSpecialCharacter(password);
 
     }
 
@@ -38,4 +40,17 @@ public class Password {
         return matcher.find();
     }
 
+    private static boolean hasNumber(String password) {
+        Pattern pattern = Pattern.compile("[0-9]");
+        Matcher matcher = pattern.matcher(password);
+
+        return matcher.find();
+    }
+
+    private static boolean hasSpecialCharacter(String password) {
+        Pattern pattern = Pattern.compile("[^A-Za-z0-9]");
+        Matcher matcher = pattern.matcher(password);
+
+        return matcher.find();
+    }
 }
