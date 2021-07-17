@@ -8,7 +8,8 @@ public class Password {
                 hasCapitalLetters(password) &&
                 hasLowerCaseLetters(password) &&
                 hasNumber(password) &&
-                hasSpecialCharacter(password);
+                hasSpecialCharacter(password) &&
+                doesNotContainSpace(password);
 
     }
 
@@ -52,5 +53,13 @@ public class Password {
         Matcher matcher = pattern.matcher(password);
 
         return matcher.find();
+
+    }
+    private static boolean doesNotContainSpace(String password) {
+        Pattern pattern = Pattern.compile(" ");
+        Matcher matcher = pattern.matcher(password);
+
+        return !matcher.find();
+
     }
 }

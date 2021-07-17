@@ -83,6 +83,19 @@ class passwordTest {
         assertFalse(actual);
     }
 
+    @Test
+        @DisplayName("should return false when given password with space")
+        public void checkWithSpace() {
+            // Given
+            String testPassword = "werdcQWE Vadf3242";
+
+            // When
+            boolean actual = Password.validate(testPassword);
+
+            // Then
+            assertFalse(actual);
+        }
+
 
 
 }
